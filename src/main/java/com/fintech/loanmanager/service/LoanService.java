@@ -20,10 +20,14 @@ public class LoanService {
 
     private final LoanRepository loanRepository;
     private final CustomerRepository customerRepository;
+    private final EmailService emailService;
 
-    public LoanService(LoanRepository loanRepository, CustomerRepository customerRepository) {
+    public LoanService(LoanRepository loanRepository,
+                       CustomerRepository customerRepository,
+                       EmailService emailService) {
         this.loanRepository = loanRepository;
         this.customerRepository = customerRepository;
+        this.emailService = emailService;
     }
 
     public void applyLoan(LoanReqDto request) {
@@ -79,7 +83,7 @@ public class LoanService {
 
     public void updateLoanStatus(Long loanId, Status status) {
         Loan loan = loanRepository.findById(loanId)
-                .orElseThrow(() -> new RuntimeException("Loan not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Loan not found"));
 
         if (loan.getStatus() != Status.PENDING) {
             throw new RuntimeException("Loan already processed");
@@ -87,6 +91,9 @@ public class LoanService {
 
         loan.setStatus(status);
         loanRepository.save(loan);
+        Customer customer = customerRepository.findById(loan.getCustomer().getId())
+                .orElseThrow(() -> new EntityNotFoundException("Customer not found"));
+        emailService.sendLoanStatusMail(customer,loan);
     }
 
 }
