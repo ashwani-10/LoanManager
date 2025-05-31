@@ -7,7 +7,6 @@ A backend system to manage customers and their loan applications.
 ## Tech Stack
 - Java
 - Spring Boot
-- Spring Data JPA
 - PostgreSQL
 - Lombok
 
