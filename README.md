@@ -19,10 +19,9 @@ A backend system to manage customers and their loan applications.
 - After aprooving/rejecting loan application by admin customer will get notified through email.
 ---
 
-## APIs Implemented
-- `POST /api/customers/registration` – Register new customer
-- `POST /api/loans/apply` – Apply for loan
-- `PUT /api/loans/{loanId}/status` – Approve/Reject loan
-- `GET /api/loans` – Get all loans
+## Possible Improvements
+- Loan Repayment Tracker and EMI schedule
+- Application Security (JWT/Spring Security)
+- Admin Dashboard to view customer and loan stats
 
 ---
