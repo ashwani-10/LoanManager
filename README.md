@@ -8,7 +8,7 @@ A backend system to manage customers and their loan applications.
 - Java
 - Spring Boot
 - Spring Data JPA
-- MySQL
+- PostgreSQL
 - Lombok
 
 ---
@@ -26,7 +26,6 @@ A backend system to manage customers and their loan applications.
 - `POST /api/customers/registration` – Register new customer
 - `POST /api/loans/apply` – Apply for loan
 - `PUT /api/loans/{loanId}/status` – Approve/Reject loan
-- `GET /api/customers` – Get all customers
 - `GET /api/loans` – Get all loans
 
 ---
