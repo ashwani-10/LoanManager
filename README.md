@@ -1,4 +1,4 @@
-#Customer & Loan Management System
+Customer & Loan Management System
 
 A backend system to manage customers and their loan applications.
 
