@@ -4,7 +4,6 @@ import com.fintech.loanmanager.requestdto.LoanReqDto;
 import com.fintech.loanmanager.requestdto.LoanStatusUpdateDto;
 import com.fintech.loanmanager.responsedto.LoanResponseDto;
 import com.fintech.loanmanager.service.LoanService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +24,12 @@ public class LoanController {
         return ResponseEntity.ok("Loan application submitted successfully");
     }
 
-    @GetMapping
+    @GetMapping("/view")
     public ResponseEntity<List<LoanResponseDto>> getAllLoans() {
         return ResponseEntity.ok(loanService.getAllLoans());
     }
 
-    @PutMapping("/api/loans/{loanId}/status")
+    @PutMapping("/{loanId}/status")
     public ResponseEntity<String> updateLoanStatus(
             @PathVariable Long loanId,
             @RequestBody LoanStatusUpdateDto request) {

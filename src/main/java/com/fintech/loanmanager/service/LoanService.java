@@ -33,6 +33,8 @@ public class LoanService {
             Customer customer = customerRepository.findById(request.getCustomerId())
                     .orElseThrow(() -> new EntityNotFoundException("Customer not found"));
 
+            if(customer.getCreditScore() < 550) throw new IllegalArgumentException("Customer is not eligible for applying for a loan");
+
             // calculate interest rate
             double interestRate = calculateInterestRate(customer.getCreditScore());
 

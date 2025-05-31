@@ -29,7 +29,7 @@ public class CustomerService {
         try {
             Customer customer = customerMapper.mapCustomer(customerReqDto);
             //Generate random credit score
-            int creditScore = new Random().nextInt(301) + 500;
+            Integer creditScore = new Random().nextInt(301) + 500;
             customer.setCreditScore(creditScore);
             customerRepository.save(customer);
 
