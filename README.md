@@ -1,4 +1,4 @@
-# FinTech Customer & Loan Management System
+#Customer & Loan Management System
 
 A backend system to manage customers and their loan applications.
 
@@ -8,8 +8,6 @@ A backend system to manage customers and their loan applications.
 - Java
 - Spring Boot
 - PostgreSQL
-- Lombok
-
 ---
 
 ## Thought Process
@@ -18,7 +16,7 @@ A backend system to manage customers and their loan applications.
 - Designed two main entities: `Customer` and `Loan`.
 - Established a `ManyToOne` relationship from Loan to Customer.
 - Auto-generated credit scores and calculated interest rates based on it.
-
+- After aprooving/rejecting loan application by admin customer will get notified through email.
 ---
 
 ## APIs Implemented
